@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.mapper.PaymentdemoMapper">
+
+    <resultMap id="BaseResultMap" type="com.liu.entity.Paymentdemo">
+            <id property="paydid" column="payDid" jdbcType="BIGINT"/>
+            <result property="demoname" column="demoName" jdbcType="VARCHAR"/>
+            <result property="amount" column="amount" jdbcType="DECIMAL"/>
+            <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+            <result property="createTime" column="CreateTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="UpdateTime" jdbcType="TIMESTAMP"/>
+            <result property="del" column="del" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        payDid,demoName,amount,
+        remarks,CreateTime,UpdateTime,
+        progress,del
+    </sql>
+</mapper>

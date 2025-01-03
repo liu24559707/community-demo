@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.mapper.EntrustMapper">
+
+    <resultMap id="BaseResultMap" type="com.liu.entity.Entrust">
+            <id property="entrustid" column="entrustId" jdbcType="BIGINT"/>
+            <result property="publisher" column="publisher" jdbcType="BIGINT"/>
+            <result property="context" column="context" jdbcType="VARCHAR"/>
+            <result property="grade" column="grade" jdbcType="INTEGER"/>
+            <result property="starterTime" column="starterTime" jdbcType="TIMESTAMP"/>
+            <result property="endTime" column="endTime" jdbcType="TIMESTAMP"/>
+            <result property="createTime" column="CreateTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="UpdateTime" jdbcType="TIMESTAMP"/>
+            <result property="del" column="del" javaType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        entrustId,publisher,context,
+        grade,starterTime,endTime,
+        CreateTime,UpdateTime,del
+    </sql>
+</mapper>

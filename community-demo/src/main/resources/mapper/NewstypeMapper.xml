@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.mapper.NewstypeMapper">
+
+    <resultMap id="BaseResultMap" type="com.liu.entity.Newstype">
+            <result property="typeid" column="typeId" jdbcType="INTEGER"/>
+            <result property="typename" column="typeName" jdbcType="VARCHAR"/>
+            <result property="createTime" column="CreateTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="UpdateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        typeId,typeName,CreateTime,
+        UpdateTime
+    </sql>
+</mapper>

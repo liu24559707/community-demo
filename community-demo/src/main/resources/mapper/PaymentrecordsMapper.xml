@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.mapper.PaymentrecordsMapper">
+
+    <resultMap id="BaseResultMap" type="com.liu.entity.Paymentrecords">
+            <id property="payrid" column="PayRid" jdbcType="BIGINT"/>
+            <result property="paydid" column="payDid" jdbcType="BIGINT"/>
+            <result property="propid" column="propId" jdbcType="BIGINT"/>
+            <result property="progress" column="progress" jdbcType="INTEGER"/>
+            <result property="createTime" column="CreateTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="UpdateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        PayRid,payDid,propId,
+        payStatus,CreateTime,UpdateTime
+    </sql>
+
+    <select id="queryWithRecordsAndDemo" resultType="com.liu.entity.Paymentrecords">
+        SELECT r.*,d.demoName,d.amount,prop.propname,prop.ownerId,u.username
+        from paymentdemo d
+                 LEFT JOIN paymentrecords r ON d.payDid = r.payDid
+                 LEFT JOIN properties prop ON r.propId = prop.propId
+                 LEFT JOIN users u ON u.userId = prop.ownerId
+        where
+             r.payRid in
+        <foreach item="payRid" collection="ids" open="(" separator="," close=")">
+            #{payRid}
+        </foreach>
+         and   r.del = 0
+         and   prop.ownerId = #{userId}
+        order by r.progress asc
+    </select>
+
+
+</mapper>

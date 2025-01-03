@@ -1,0 +1,47 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: community-demo
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      username: root
+      password: 123456
+      url: jdbc:mysql://127.0.0.1:3306/community?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    redis:
+      host: 192.168.119.130
+      port: 6379
+      password: 123321
+      lettuce:
+        pool:
+          max-idle: 10
+          min-idle: 1
+          max-active: 10
+          time-between-eviction-runs: 10s
+  jackson:
+    default-property-inclusion: non_null #处理为json时，忽略值为null的属性
+
+
+jwt:
+  token:
+    token-sign-key: ICommunity-0001
+    token-expiration: 120 #分钟
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #关闭驼峰式映射，因为我的数据库没有驼峰式的字段，所以需要关闭驼峰式映射
+    map-underscore-to-camel-case: false
+  type-aliases-package: com.liu.entity
+  #逻辑删除设置
+  global-config:
+    db-config:
+      logic-delete-field: del #逻辑删除字段
+      logic-delete-value: 1
+      logic-not-delete-value: 0

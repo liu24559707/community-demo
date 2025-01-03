@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.mapper.PropertiesMapper">
+
+    <resultMap id="BaseResultMap" type="com.liu.entity.Properties">
+            <id property="propid" column="propId" jdbcType="BIGINT"/>
+            <result property="ownerid" column="ownerId" jdbcType="BIGINT"/>
+            <result property="description" column="description" jdbcType="VARCHAR"/>
+            <result property="propstatus" column="propStatus" jdbcType="INTEGER"/>
+            <result property="createTime" column="CreateTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="UpdateTime" jdbcType="TIMESTAMP"/>
+            <result property="del" column="del" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        propId,ownerId,description,
+        propStatus,CreateTime,UpdateTime,
+        del
+    </sql>
+</mapper>

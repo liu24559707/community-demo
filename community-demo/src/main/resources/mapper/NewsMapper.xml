@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.mapper.NewsMapper">
+
+    <resultMap id="BaseResultMap" type="com.liu.entity.News">
+            <id property="nid" column="nid" jdbcType="INTEGER"/>
+            <result property="title" column="title" jdbcType="VARCHAR"/>
+            <result property="newsType" column="newstype" jdbcType="INTEGER"/>
+            <result property="content" column="content" jdbcType="VARCHAR"/>
+            <result property="clickCount" column="clickCount" jdbcType="INTEGER"/>
+            <result property="createTime" column="CreateTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="UpdateTime" jdbcType="TIMESTAMP"/>
+            <result property="del" column="del" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        nid,title,newstype,
+        content,clickCount,CreateTime,
+        UpdateTime,del
+    </sql>
+
+    <select id="selectIds" resultType="long">
+        select nid
+        from news
+        where title like CONCAT('%', #{search}, '%')
+        <if test="typeId != 0">
+            and newstype = #{typeId}
+        </if>
+        and del = 0
+        order by nid DESC
+        limit #{start}, #{pageSize};
+    </select>
+</mapper>
