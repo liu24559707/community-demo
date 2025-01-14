@@ -3,6 +3,7 @@ package com.liu.controller;
 import com.liu.entity.Entrust;
 import com.liu.service.AcceptService;
 import com.liu.service.EntrustService;
+import com.liu.utils.RedisLock;
 import com.liu.utils.Result;
 import com.liu.utils.UserHolder;
 import jakarta.annotation.Resource;
@@ -43,6 +44,12 @@ public class EntrustController {
      */
     @GetMapping("refresh/{selected}")
     public Result refreshEntrust(@PathVariable Integer selected) {
+        String userId1 = UserHolder.getUserId();
+        RedisLock redisLock = new RedisLock(redisTemplate,"entrust"+selected,userId1);
+        boolean b = redisLock.lockSeconds(10);
+        if (!b) {
+            return Result.build(null,500,"请于10秒之后重新尝试");
+        }
         if (selected == 0) {
             redisTemplate.delete("entrust:all");
         }

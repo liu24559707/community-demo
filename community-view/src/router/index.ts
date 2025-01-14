@@ -41,10 +41,10 @@ const router = createRouter({
           path:'/userSecurity',
           name:'UserSecurity',
           component:()=>import('../views/UserSecurity.vue')
-        }
-      ]
-    }
-  ]
-})
-
-export default router
+        },{
+          path:'/complaint',
+          name:'Complain',
+          component:()=>import('../views/complain.vue')
+        },{
+          path:'/complainAdd',
+          n

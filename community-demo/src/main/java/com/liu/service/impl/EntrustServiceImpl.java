@@ -71,13 +71,12 @@ public class EntrustServiceImpl extends ServiceImpl<EntrustMapper, Entrust>
                 redisTemplate.opsForList().rightPush(key,entrust);
             }
         }
-
         redisTemplate.expire(key,10, TimeUnit.MINUTES);
         return Result.ok(entrusts);
     }
 
     /**
-     * 发布委托
+     * 发布委托（默认结束日期为两天后）
      * @return
      */
     @Transactional

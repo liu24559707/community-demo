@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 
 /**
@@ -46,8 +47,12 @@ public class IdAndTimeGeneration {
         //自增键
         String key = localDate+":"+dataType.getDataTypeId();
 
+
         //redis自增
         Long increment = stringRedisTemplate.opsForValue().increment(key, 1);
+        if (increment == 1) {
+        stringRedisTemplate.expire(key,24,TimeUnit.HOURS);
+        }
 
         //组合
         String id = ""+dataType.getDataTypeId()+epochMilli+increment;

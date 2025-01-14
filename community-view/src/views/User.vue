@@ -16,9 +16,9 @@
 
         <van-cell-group style="margin-top: 2vh;">
             <van-cell icon="setting-o" title="我的委托" is-link />
-            <van-cell icon="warning-o" title="物业投诉" is-link />
+            <van-cell icon="chat-o" title="物业投诉" is-link @click="$router.push('/complaint')"/>
             <van-cell icon="after-sale" title="缴费" is-link />
-            <van-cell icon="chat-o" title="关于我们" is-link />
+            <van-cell icon="warning-o" title="关于我们" is-link />
         </van-cell-group>
 
         <van-cell-group style="margin-top: 2vh;">

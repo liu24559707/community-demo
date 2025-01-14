@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <div class="fixed-header">
             <div class="Header">
                 <van-icon class="icon-left" name="arrow-left" @click="$router.back()"/>
@@ -154,6 +153,8 @@ function refresh(){
         if(res.data.code == 200){
             entrustList.value = res.data.data
             console.log(entrustList.value)
+        }else{
+            showToast(res.data.message)
         }
     })
 }

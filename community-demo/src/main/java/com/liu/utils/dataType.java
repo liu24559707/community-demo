@@ -12,7 +12,8 @@ public enum dataType {
     PaymentRecords(104,"缴费记录"),
     Notice(105,"通知"),
     Entrust(106,"委托"),
-    Accept(107,"接收委托");
+    Accept(107,"接收委托"),
+    Complain(108,"投诉");
 
 
     private int dataTypeId;
