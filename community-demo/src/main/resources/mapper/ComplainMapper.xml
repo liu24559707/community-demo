@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.liu.mapper.ComplainMapper">
+
+    <resultMap id="BaseResultMap" type="com.liu.entity.Complain">
+            <id property="complainid" column="complainId" jdbcType="BIGINT"/>
+            <result property="context" column="context" jdbcType="VARCHAR"/>
+            <result property="complainimg" column="complainImg" jdbcType="VARCHAR"/>
+            <result property="user" column="user" jdbcType="BIGINT"/>
+            <result property="createtime" column="CreateTime" jdbcType="TIMESTAMP"/>
+            <result property="updatetime" column="UpdateTime" jdbcType="TIMESTAMP"/>
+            <result property="del" column="del" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        complainId,context,complainImg,
+        user,CreateTime,UpdateTime,
+        del
+    </sql>
+</mapper>
