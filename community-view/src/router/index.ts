@@ -47,4 +47,21 @@ const router = createRouter({
           component:()=>import('../views/complain.vue')
         },{
           path:'/complainAdd',
-          n
+          name:'ComplainAdd',
+          component:()=>import('../views/complainAdd.vue')
+        },{
+          path:'chat',
+          name:'Chat',
+          component:()=>import('../views/Chat.vue'),
+        },
+      ]
+    },
+    {  //不去渲染Main组件
+      path:'/chatView/chatRoom',
+      name:'ChatRoom',
+      component:()=>import('../views/ChatRoom.vue')
+    }
+  ]
+})
+
+export default router

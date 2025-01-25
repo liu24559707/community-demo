@@ -27,4 +27,6 @@ public class ComplainController {
     public Result publishComplain(@RequestBody Complain complain) {
         return complainService.publish(complain);
     }
+
+
 }

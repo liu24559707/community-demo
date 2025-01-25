@@ -4,7 +4,7 @@ import { showToast } from 'vant';
 
 // 创建 Axios 实例 设置一些基础属性
 const request = axios.create({
-  baseURL:'http://localhost:8001/',
+  baseURL:'http://localhost:8002/',
   timeout: 10000,
   
 })

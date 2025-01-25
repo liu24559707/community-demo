@@ -68,6 +68,7 @@ const router = useRouter()
       console.log(res)
         if (res.data.code == 200) {
           setToken(res.data.data.token)
+          localStorage.setItem('user',res.data.data.username)
           showToast('登录成功')
           router.push({path: '/user'})
         }else {

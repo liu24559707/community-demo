@@ -9,10 +9,11 @@
     
     <div style="margin-top: 60px; margin-bottom: 50px">
         <van-cell-group v-for="item in complain" :key="item.complainid">
-            <div class="news-item">
-              <div style="text-align: center;">
+    <div class="news-item">
+         <div style="text-align: center;">
                 <img :src="item.complainimg" alt="投诉照片" style="width: 60%; height: 100px; margin: 10px;">
               </div>
+              <div style="font-weight: bold;">投诉单号： {{ item.complainid }}</div>
               <div style="font-weight: bold;">投诉内容： {{ item.context }}</div>
               <div style="font-weight: bold;">投诉时间：
                {{  (item.createTime+'').split('T')[0]+":"+new Date(item.createTime).toLocaleTimeString().split(':')[0] + ':' + new Date(item.createTime).toLocaleTimeString().split(':')[1] }}
