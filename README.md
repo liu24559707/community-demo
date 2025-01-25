@@ -4,6 +4,7 @@
 还需优化部分：通知界面太臃肿，需要转变
              首页页面需要整改，
              页面效果不太好看，还请见谅
+             
 技术：vue3+vant4+springboot3+redis6.2.6+mysql+Mybatis-plus+webSocket
 部署前提：(仅供参考)
      要有redis环境，jdk17+，nodejs 20.13.1，vite5.4.11
